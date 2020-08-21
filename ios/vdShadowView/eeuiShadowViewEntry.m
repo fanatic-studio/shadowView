@@ -1,13 +1,13 @@
 //
-//  eeuiShadowViewEntry.m
+//  vdShadowViewEntry.m
 //  Pods
 //
 
-#import "eeuiShadowViewEntry.h"
+#import "vdShadowViewEntry.h"
 #import "WeexInitManager.h"
 
-WEEX_PLUGIN_INIT(eeuiShadowViewEntry)
-@implementation eeuiShadowViewEntry
+WEEX_PLUGIN_INIT(vdShadowViewEntry)
+@implementation vdShadowViewEntry
 
 //启动成功
 - (void) didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

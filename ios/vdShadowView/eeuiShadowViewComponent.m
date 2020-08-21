@@ -1,14 +1,14 @@
 //
-//  eeuiShadowViewComponent.m
+//  vdShadowViewComponent.m
 //  Pods
 //
 
-#import "eeuiShadowViewComponent.h"
+#import "vdShadowViewComponent.h"
 #import "BaseShadowView.h"
 #import "DeviceUtil.h"
 #import <WeexPluginLoader/WeexPluginLoader.h>
 
-@interface eeuiShadowViewComponent ()
+@interface vdShadowViewComponent ()
 
 @property(nonatomic, assign) float blur;
 @property(nonatomic, strong) NSString *color;
@@ -19,9 +19,9 @@
 
 @end
 
-@implementation eeuiShadowViewComponent
+@implementation vdShadowViewComponent
 
-WX_PlUGIN_EXPORT_COMPONENT(shadow-view, eeuiShadowViewComponent)
+WX_PlUGIN_EXPORT_COMPONENT(shadow-view, vdShadowViewComponent)
 
 
 - (instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance {
@@ -79,7 +79,7 @@ WX_PlUGIN_EXPORT_COMPONENT(shadow-view, eeuiShadowViewComponent)
 
 - (void)dataKey:(NSString *)key value:(id)value {
     key = [DeviceUtil convertToCamelCaseFromSnakeCase:key];
-    if ([key isEqualToString:@"eeui"] && [value isKindOfClass:[NSDictionary class]]) {
+    if ([key isEqualToString:@"vd"] && [value isKindOfClass:[NSDictionary class]]) {
         NSArray *keys = [value allKeys];
         for (NSString *k in keys) {
             [self dataKey:k value:value[k]];

@@ -1,4 +1,4 @@
-package eeui.android.eeuiShadowView;
+package vd.android.vdShadowView;
 
 import android.content.Context;
 import android.content.res.TypedArray;

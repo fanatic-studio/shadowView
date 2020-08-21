@@ -1,15 +1,15 @@
-package eeui.android.eeuiShadowView.entry;
+package vd.android.vdShadowView.entry;
 
 import android.content.Context;
 
 import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.common.WXException;
 
-import app.eeui.framework.extend.annotation.ModuleEntry;
-import eeui.android.eeuiShadowView.component.eeuiShadowViewComponent;
+import app.vd.framework.extend.annotation.ModuleEntry;
+import vd.android.vdShadowView.component.vdShadowViewComponent;
 
 @ModuleEntry
-public class eeuiShadowViewEntry {
+public class vdShadowViewEntry {
 
     /**
      * APP启动会运行此函数方法
@@ -18,7 +18,7 @@ public class eeuiShadowViewEntry {
     public void init(Context content) {
 
         try {
-            WXSDKEngine.registerComponent("shadow-view", eeuiShadowViewComponent.class);
+            WXSDKEngine.registerComponent("shadow-view", vdShadowViewComponent.class);
         } catch (WXException e) {
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package eeui.android.eeuiShadowView.component;
+package vd.android.vdShadowView.component;
 
 import android.content.Context;
 
@@ -11,18 +11,18 @@ import com.taobao.weex.ui.component.WXVContainer;
 
 import java.util.Map;
 
-import app.eeui.framework.extend.module.eeuiCommon;
-import app.eeui.framework.extend.module.eeuiConstants;
-import app.eeui.framework.extend.module.eeuiJson;
-import app.eeui.framework.extend.module.eeuiParse;
-import app.eeui.framework.extend.module.eeuiScreenUtils;
-import eeui.android.eeuiShadowView.ShadowLayout;
+import app.vd.framework.extend.module.vdCommon;
+import app.vd.framework.extend.module.vdConstants;
+import app.vd.framework.extend.module.vdJson;
+import app.vd.framework.extend.module.vdParse;
+import app.vd.framework.extend.module.vdScreenUtils;
+import vd.android.vdShadowView.ShadowLayout;
 
-public class eeuiShadowViewComponent extends WXVContainer<ShadowLayout> {
+public class vdShadowViewComponent extends WXVContainer<ShadowLayout> {
 
     private ShadowLayout mShadowLayout;
 
-    public eeuiShadowViewComponent(WXSDKInstance instance, WXVContainer parent, BasicComponentData basicComponentData) {
+    public vdShadowViewComponent(WXSDKInstance instance, WXVContainer parent, BasicComponentData basicComponentData) {
         super(instance, parent, basicComponentData);
     }
 
@@ -30,8 +30,8 @@ public class eeuiShadowViewComponent extends WXVContainer<ShadowLayout> {
     protected ShadowLayout initComponentHostView(@NonNull Context context) {
         mShadowLayout = new ShadowLayout(context);
         //
-        if (getEvents().contains(eeuiConstants.Event.READY)) {
-            fireEvent(eeuiConstants.Event.READY, null);
+        if (getEvents().contains(vdConstants.Event.READY)) {
+            fireEvent(vdConstants.Event.READY, null);
         }
         //
         return mShadowLayout;
@@ -43,9 +43,9 @@ public class eeuiShadowViewComponent extends WXVContainer<ShadowLayout> {
     }
 
     private boolean initProperty(String key, Object val) {
-        switch (eeuiCommon.camelCaseName(key)) {
-            case "eeui":
-                JSONObject json = eeuiJson.parseObject(eeuiParse.parseStr(val, ""));
+        switch (vdCommon.camelCaseName(key)) {
+            case "vd":
+                JSONObject json = vdJson.parseObject(vdParse.parseStr(val, ""));
                 if (json.size() > 0) {
                     for (Map.Entry<String, Object> entry : json.entrySet()) {
                         initProperty(entry.getKey(), entry.getValue());
@@ -54,27 +54,27 @@ public class eeuiShadowViewComponent extends WXVContainer<ShadowLayout> {
                 return true;
 
             case "blur":
-                mShadowLayout.setmShadowLimit(px2dp(eeuiParse.parseInt(val)));
+                mShadowLayout.setmShadowLimit(px2dp(vdParse.parseInt(val)));
                 return true;
 
             case "color":
-                mShadowLayout.setmShadowColor(eeuiParse.parseColor(val));
+                mShadowLayout.setmShadowColor(vdParse.parseColor(val));
                 return true;
 
             case "backgroundColor":
-                mShadowLayout.setmBackGroundColor(eeuiParse.parseColor(val));
+                mShadowLayout.setmBackGroundColor(vdParse.parseColor(val));
                 return true;
 
             case "offsetX":
-                mShadowLayout.setMDx(px2dp(eeuiParse.parseInt(val)));
+                mShadowLayout.setMDx(px2dp(vdParse.parseInt(val)));
                 return true;
 
             case "offsetY":
-                mShadowLayout.setMDy(px2dp(eeuiParse.parseInt(val)));
+                mShadowLayout.setMDy(px2dp(vdParse.parseInt(val)));
                 return true;
 
             case "placement":
-                String placement = eeuiParse.parseStr(val);
+                String placement = vdParse.parseStr(val);
                 boolean showAll = placement.contains("all") || !(placement.contains("left") || placement.contains("right") || placement.contains("top") || placement.contains("bottom"));
                 mShadowLayout.setLeftShow(showAll || placement.contains("left"));
                 mShadowLayout.setRightShow(showAll || placement.contains("right"));
@@ -88,6 +88,6 @@ public class eeuiShadowViewComponent extends WXVContainer<ShadowLayout> {
     }
 
     private int px2dp(int val) {
-        return eeuiScreenUtils.weexPx2dp(getInstance(), val);
+        return vdScreenUtils.weexPx2dp(getInstance(), val);
     }
 }

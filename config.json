@@ -1,5 +1,5 @@
 {
 	"desc": "阴影布局组件",
-	"requireFormatName": "eeuiShadowView",
-	"requireName": "eeui/shadowView"
+	"requireFormatName": "vdShadowView",
+	"requireName": "vd/shadowView"
 }
